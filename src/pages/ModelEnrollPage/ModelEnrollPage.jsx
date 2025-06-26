@@ -29,7 +29,7 @@ function ModelEnrollPage() {
         // Fix: Use template literal for URL
         const response = await axios.get(`https://eduvizbackend.onrender.com/api/models/${modelId}`, {
           headers: { Authorization: `Bearer ${token}` }, // Fix: Proper string interpolation
-          
+          withCredentials: true,
         });
 
         const modelData = response.data;
@@ -89,7 +89,7 @@ function ModelEnrollPage() {
     try {
       const response = await axios.get("https://eduvizbackend.onrender.com/api/users/me", {
         headers: { Authorization: `Bearer ${token}` }, // Fix: Proper string interpolation
-        
+        withCredentials: true,
       });
       const enrolledCourses = response.data.enrolledCourses || [];
       return enrolledCourses.includes(model.id);
@@ -143,7 +143,7 @@ function ModelEnrollPage() {
               { modelId: model.id },
               {
                 headers: { Authorization: `Bearer ${token}` }, // Fix: Proper string interpolation
-                
+                withCredentials: true,
               }
             );
 
@@ -212,7 +212,7 @@ function ModelEnrollPage() {
         { modelId: model.id },
         {
           headers: { Authorization: `Bearer ${token}` }, // Fix: Proper string interpolation
-          
+          withCredentials: true,
         }
       );
       setIsAddedToCart(true);

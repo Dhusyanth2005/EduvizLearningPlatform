@@ -25,7 +25,7 @@ function LearnerDashboard() {
         try {
           const response = await axios.get("https://eduvizbackend.onrender.com/api/users/me", {
             headers: { Authorization: `Bearer ${token}` },
-            
+            withCredentials: true,
           });
           const { enrolledCourses = [], wishlist = [], fullName = "User" } = response.data;
           setUserName(fullName); // Set the user's full name
@@ -42,7 +42,7 @@ function LearnerDashboard() {
                   `https://eduvizbackend.onrender.com/api/models/${courseId}`,
                   {
                     headers: { Authorization: `Bearer ${token}` },
-                    
+                    withCredentials: true,
                   }
                 );
                 const modelData = modelResponse.data;
@@ -89,7 +89,7 @@ function LearnerDashboard() {
                   `https://eduvizbackend.onrender.com/api/models/${modelId}`,
                   {
                     headers: { Authorization: `Bearer ${token}` },
-                    
+                    withCredentials: true,
                   }
                 );
                 const modelData = modelResponse.data;
@@ -224,7 +224,7 @@ function LearnerDashboard() {
           {},
           {
             headers: { Authorization: `Bearer ${token}` },
-            
+            withCredentials: true,
           }
         );
         if (response.status === 200) {

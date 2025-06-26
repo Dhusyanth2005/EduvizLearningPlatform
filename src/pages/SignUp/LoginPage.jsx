@@ -217,12 +217,12 @@ const LoginPage = () => {
       const response = await axios.post(`${apiUrl}/api/login`, {
       email: formData.email,
       password: formData.password,
-      });
+      }, { withCredentials: true });
 
       // Store the token from login response
       const { token, user } = response.data;
       localStorage.setItem('token', token);
-
+      console.log(token); // Log token for debugging
       setMessage(t('loginSuccess'));
       setTimeout(() => {
         console.log("User data:",user); // Log user data for debugging

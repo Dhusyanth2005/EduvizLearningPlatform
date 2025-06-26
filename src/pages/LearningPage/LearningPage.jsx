@@ -19,7 +19,7 @@ const LearningPage = () => {
         try {
           const response = await axios.get(`https://eduvizbackend.onrender.com/api/models/${modelId}`, {
             headers: { Authorization: `Bearer ${token}` },
-            
+            withCredentials: true,
           });
           const model = response.data;
           let imageUrl = img;
