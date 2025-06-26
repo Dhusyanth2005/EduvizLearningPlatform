@@ -213,7 +213,7 @@ const LoginPage = () => {
     setMessage('');
 
     try {
-      const response = await axios.post(`${import.meta.env.VITE_API_URL}/api/login`, {
+      const response = await axios.post(`${process.env.VITE_API_URL}/api/login`, {
         email: formData.email,
         password: formData.password,
       }, { withCredentials: true });
@@ -239,7 +239,7 @@ const LoginPage = () => {
   };
 
   const handleGoogleLogin = () => {
-    const apiUrl = import.meta.env.VITE_API_URL || "https://eduvizbackend.onrender.com";
+    const apiUrl = process.env.VITE_API_URL || "https://eduvizbackend.onrender.com";
     if (!apiUrl) {
       console.error("API URL is not configured");
       alert("Configuration error. Please try again later.");
