@@ -325,7 +325,8 @@ const SignUpPage = () => {
     setMessage('');
 
     try {
-      const response = await axios.post(`${process.env.VITE_API_URL}/api/send-otp`, {
+      const apiUrl = process.env.VITE_API_URL || "https://eduvizbackend.onrender.com";
+      const response = await axios.post(`${apiUrl}/api/send-otp`, {
         email: formData.email,
       });
       setMessage(t('otpSuccess'));
@@ -344,7 +345,8 @@ const SignUpPage = () => {
     setMessage('');
 
     try {
-      await axios.post(`${process.env.VITE_API_URL}/api/verify-otp`, {
+      const apiUrl = process.env.VITE_API_URL || "https://eduvizbackend.onrender.com";
+      await axios.post(`${apiUrl}/api/verify-otp`, {
         email: formData.email,
         otp,
       });

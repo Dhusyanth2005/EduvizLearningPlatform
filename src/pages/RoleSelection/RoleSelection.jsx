@@ -256,8 +256,9 @@ const RoleSelection = () => {
     }
   
     try {
+      const apiUrl = process.env.VITE_API_URL || "https://eduvizbackend.onrender.com";
       const response = await axios.post(
-        `${import.meta.env.VITE_API_URL}/api/select-role`,
+        `${apiUrl}/api/select-role`,
         { role: backendRole },
         {
           headers: {

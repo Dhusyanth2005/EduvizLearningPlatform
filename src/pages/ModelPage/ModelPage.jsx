@@ -20,7 +20,7 @@ export default function ModelPage() {
   const [modelData, setModelData] = useState(null);
   const appRef = useRef(null);
 
-  const apiUrl = import.meta.env.VITE_API_URL || 'https://eduvizbackend.onrender.com';
+  const apiUrl = process.env.VITE_API_URL || 'https://eduvizbackend.onrender.com';
 
   useEffect(() => {
     const fetchModelData = async () => {

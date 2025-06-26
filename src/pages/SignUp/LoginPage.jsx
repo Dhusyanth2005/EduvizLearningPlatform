@@ -213,9 +213,10 @@ const LoginPage = () => {
     setMessage('');
 
     try {
-      const response = await axios.post(`${process.env.VITE_API_URL}/api/login`, {
-        email: formData.email,
-        password: formData.password,
+      const apiUrl = process.env.VITE_API_URL || "https://eduvizbackend.onrender.com";
+      const response = await axios.post(`${apiUrl}/api/login`, {
+      email: formData.email,
+      password: formData.password,
       }, { withCredentials: true });
 
       // Store the token from login response
