@@ -25,7 +25,7 @@ const SettingsPage = () => {
         try {
           const response = await axios.get(`${apiUrl}/api/users/me`, {
             headers: { Authorization: `Bearer ${token}` },
-            withCredentials: true,
+            
           });
           const { fullName, email, profilePicture } = response.data;
           setUserData({ 
