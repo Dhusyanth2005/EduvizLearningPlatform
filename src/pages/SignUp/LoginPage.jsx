@@ -217,7 +217,7 @@ const LoginPage = () => {
       const response = await axios.post(`${apiUrl}/api/login`, {
       email: formData.email,
       password: formData.password,
-      }, { withCredentials: true });
+      });
 
       // Store the token from login response
       const { token, user } = response.data;

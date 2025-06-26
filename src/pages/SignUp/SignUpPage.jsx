@@ -351,7 +351,7 @@ const SignUpPage = () => {
         otp,
       });
 
-      const signupResponse = await axios.post(`${process.env.VITE_API_URL}/api/signup`, {
+      const signupResponse = await axios.post(`${apiUrl}/api/signup`, {
         fullName: formData.fullName,
         email: formData.email,
         password: formData.password,
